@@ -1,0 +1,8 @@
+[package]
+name = "multisig"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+secp256k1 = {version = "0.30.0", features = ["rand"]}
+bitcoin_hashes = "0.15.0"
