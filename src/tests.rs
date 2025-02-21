@@ -66,7 +66,7 @@ fn test_invalid_multisig() {
 
     // Generate keys for two participants
     let (secret_key1, public_key1) = secp.generate_keypair(&mut rng);
-    let (_secret_key2, public_key2) = secp.generate_keypair(&mut rng);
+    let (secret_key2, public_key2) = secp.generate_keypair(&mut rng);
 
     let pub_keys = vec![public_key1, public_key2];
     let threshold = 2;
@@ -86,7 +86,7 @@ fn test_invalid_multisig() {
     let message = Message::from_digest(message_hash.to_byte_array());
 
     // Sign the message
-    let signature = secp.sign_ecdsa(&message, &secret_key1);
+    let signature = secp.sign_ecdsa(&message, &secret_key2);
     multisig.add_signature(signature);
 
     // Check that the multisignature is invalid
